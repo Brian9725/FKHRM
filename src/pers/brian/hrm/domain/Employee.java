@@ -22,7 +22,7 @@ public class Employee implements Serializable {
     //地址
     private String address;
     //邮编
-    private String postcade;
+    private String postCode;
     //电话号码
     private String tel;
     //手机号码
@@ -34,7 +34,7 @@ public class Employee implements Serializable {
     //性别
     private Integer sex;
     //政治面貌
-    private String parth;
+    private String party;
     //生日
     private Date birthday;
     //民族
@@ -102,12 +102,12 @@ public class Employee implements Serializable {
         this.address = address;
     }
 
-    public String getPostcade() {
-        return postcade;
+    public String getPostCode() {
+        return postCode;
     }
 
-    public void setPostcade(String postcade) {
-        this.postcade = postcade;
+    public void setPostCode(String postCode) {
+        this.postCode = postCode;
     }
 
     public String getTel() {
@@ -150,12 +150,12 @@ public class Employee implements Serializable {
         this.sex = sex;
     }
 
-    public String getParth() {
-        return parth;
+    public String getParty() {
+        return party;
     }
 
-    public void setParth(String parth) {
-        this.parth = parth;
+    public void setParty(String party) {
+        this.party = party;
     }
 
     public Date getBirthday() {
