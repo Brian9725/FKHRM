@@ -73,13 +73,13 @@ public class UserDynaSQLProvider {
     }
 
     //动态查询
-    public String selectByPage(Map<String, Object> param) {
+    public String selectByPage(Map<String, Object> params) {
         return new SQL() {
             {
                 SELECT("*");
                 FROM(USERTABLE);
-                if (param.get("user") != null) {
-                    User user = (User) param.get("user");
+                if (params.get("user") != null) {
+                    User user = (User) params.get("user");
                     if (user.getUsername() != null && !user.getUsername().equals("")) {
                         WHERE("username LIKE CONCAT ('%', #{user.username}, '%')");
                     }
@@ -92,13 +92,13 @@ public class UserDynaSQLProvider {
     }
 
     //根据参数查询用户总数
-    public String count(Map<String, Object> param) {
+    public String count(Map<String, Object> params) {
         return new SQL() {
             {
                 SELECT("count(*)");
                 FROM(USERTABLE);
-                if (param.get("user") != null) {
-                    User user = (User) param.get("user");
+                if (params.get("user") != null) {
+                    User user = (User) params.get("user");
                     if (user.getUsername() != null && !user.getUsername().equals("")) {
                         WHERE("username LIKE CONCAT ('%', #{user.username}, '%')");
                     }
