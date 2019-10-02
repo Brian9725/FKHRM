@@ -16,7 +16,7 @@ public class Document implements Serializable {
     //标题
     private String title;
     //文件名
-    private String filename;
+    private String fileName;
     //文件
     private MultipartFile file;
     //描述
@@ -46,12 +46,12 @@ public class Document implements Serializable {
         this.title = title;
     }
 
-    public String getFilename() {
-        return filename;
+    public String getFileName() {
+        return fileName;
     }
 
-    public void setFilename(String filename) {
-        this.filename = filename;
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 
     public MultipartFile getFile() {
