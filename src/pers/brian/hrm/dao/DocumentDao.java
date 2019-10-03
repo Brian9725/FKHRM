@@ -7,6 +7,7 @@ package pers.brian.hrm.dao;
 
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.mapping.FetchType;
+import org.springframework.stereotype.Component;
 import pers.brian.hrm.dao.Provider.DocumentDynaSQLProvider;
 import pers.brian.hrm.domain.Document;
 
@@ -14,7 +15,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-public interface DocementDao {
+@Component
+public interface DocumentDao {
     //动态查询
     @SelectProvider(type = DocumentDynaSQLProvider.class, method = "selectByPage")
     @Results({

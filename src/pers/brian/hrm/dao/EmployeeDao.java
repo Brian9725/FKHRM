@@ -7,6 +7,7 @@ package pers.brian.hrm.dao;
 
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.mapping.FetchType;
+import org.springframework.stereotype.Component;
 import pers.brian.hrm.dao.Provider.EmployeeDynaSQLProvider;
 import pers.brian.hrm.domain.Employee;
 
@@ -14,6 +15,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+@Component
 public interface EmployeeDao {
     // 根据参数查询员工总数
     @SelectProvider(type = EmployeeDynaSQLProvider.class, method = "count")

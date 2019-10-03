@@ -7,6 +7,7 @@ package pers.brian.hrm.dao;
 
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.mapping.FetchType;
+import org.springframework.stereotype.Component;
 import pers.brian.hrm.dao.Provider.NoticeDynaSQLProvider;
 import pers.brian.hrm.domain.Notice;
 
@@ -14,6 +15,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+@Component
 public interface NoticeDao {
     // 动态查询
     @SelectProvider(type = NoticeDynaSQLProvider.class, method = "selectByPage")

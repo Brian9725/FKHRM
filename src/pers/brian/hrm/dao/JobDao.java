@@ -9,12 +9,14 @@ import org.apache.ibatis.annotations.DeleteProvider;
 import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.SelectProvider;
 import org.apache.ibatis.annotations.UpdateProvider;
+import org.springframework.stereotype.Component;
 import pers.brian.hrm.dao.Provider.JobDynaSQLProvider;
 import pers.brian.hrm.domain.Job;
 
 import java.util.List;
 import java.util.Map;
 
+@Component
 public interface JobDao {
     //根据id查询职位
     @SelectProvider(type = JobDynaSQLProvider.class, method = "selectById")

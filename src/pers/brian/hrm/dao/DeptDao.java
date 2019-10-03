@@ -9,12 +9,14 @@ import org.apache.ibatis.annotations.DeleteProvider;
 import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.SelectProvider;
 import org.apache.ibatis.annotations.UpdateProvider;
+import org.springframework.stereotype.Component;
 import pers.brian.hrm.dao.Provider.DeptDynaSQLProvider;
 import pers.brian.hrm.domain.Dept;
 
 import java.util.List;
 import java.util.Map;
 
+@Component
 public interface DeptDao {
     //动态分页查询
     @SelectProvider(type = DeptDynaSQLProvider.class, method = "selectByPage")

@@ -8,12 +8,14 @@ package pers.brian.hrm.dao;
 import org.apache.ibatis.annotations.DeleteProvider;
 import org.apache.ibatis.annotations.SelectProvider;
 import org.apache.ibatis.annotations.UpdateProvider;
+import org.springframework.stereotype.Component;
 import pers.brian.hrm.dao.Provider.UserDynaSQLProvider;
 import pers.brian.hrm.domain.User;
 
 import java.util.List;
 import java.util.Map;
 
+@Component
 public interface UserDao {
     @SelectProvider(type = UserDynaSQLProvider.class, method = "selectByLoginnameAndPassword")
     User selectByLoginnameAndPassword(String loginname, String password);
