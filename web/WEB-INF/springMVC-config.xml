@@ -18,4 +18,14 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <!--定义Spring MVC的拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!--拦截所有请求-->
+            <mvc:mapping path="/*"/>
+            <!--自定义判断用户权限的拦截器-->
+            <bean class="pers.brian.hrm.interceptor.AuthorizedInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
 </beans>

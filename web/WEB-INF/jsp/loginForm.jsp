@@ -40,7 +40,7 @@
 <script src="${ctx }/js/ligerUI/js/plugins/ligerDrag.js" type="text/javascript"></script>
 <script src="${ctx }/js/ligerUI/js/plugins/ligerResizable.js" type="text/javascript"></script>
 <script type="text/javascript">
-   
+
    $(function(){
 	    /** 按了回车键 */
 	   $(document).keydown(function(event){
