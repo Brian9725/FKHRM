@@ -5,25 +5,29 @@
  */
 package pers.brian.hrm.dao;
 
-import org.apache.ibatis.annotations.DeleteProvider;
-import org.apache.ibatis.annotations.SelectProvider;
-import org.apache.ibatis.annotations.UpdateProvider;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Component;
 import pers.brian.hrm.dao.Provider.UserDynaSQLProvider;
 import pers.brian.hrm.domain.User;
+import pers.brian.hrm.util.common.HrmConstants;
 
 import java.util.List;
 import java.util.Map;
 
+import static pers.brian.hrm.util.common.HrmConstants.USERTABLE;
+
 @Component
 public interface UserDao {
-    @SelectProvider(type = UserDynaSQLProvider.class, method = "selectByLoginnameAndPassword")
-    User selectByLoginnameAndPassword(String loginname, String password);
+    //@SelectProvider(type = UserDynaSQLProvider.class, method = "selectByLoginnameAndPassword")
+    @Select("SELECT * FROM " + USERTABLE + " WHERE loginname = #{loginname} AND password = #{password}")
+    User selectByLoginnameAndPassword(@Param("loginname") String loginname, @Param("password") String password);
 
-    @SelectProvider(type = UserDynaSQLProvider.class, method = "selectById")
+    //@SelectProvider(type = UserDynaSQLProvider.class, method = "selectById")
+    @Select("SELECT * FROM " + USERTABLE + " WHERE id = #{id}")
     User selectById(Integer id);
 
-    @DeleteProvider(type = UserDynaSQLProvider.class, method = "deleteById")
+    //@DeleteProvider(type = UserDynaSQLProvider.class, method = "deleteById")
+    @Delete(("DELETE FROM " + USERTABLE + " WHERE id = #{id}"))
     void deleteById(Integer id);
 
     @UpdateProvider(type = UserDynaSQLProvider.class, method = "update")
