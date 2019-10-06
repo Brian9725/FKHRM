@@ -5,16 +5,15 @@
  */
 package pers.brian.hrm.dao;
 
-import org.apache.ibatis.annotations.DeleteProvider;
-import org.apache.ibatis.annotations.InsertProvider;
-import org.apache.ibatis.annotations.SelectProvider;
-import org.apache.ibatis.annotations.UpdateProvider;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Component;
 import pers.brian.hrm.dao.Provider.DeptDynaSQLProvider;
 import pers.brian.hrm.domain.Dept;
 
 import java.util.List;
 import java.util.Map;
+
+import static pers.brian.hrm.util.common.HrmConstants.DEPTTABLE;
 
 @Component
 public interface DeptDao {
@@ -27,15 +26,18 @@ public interface DeptDao {
     Integer count(Map<String, Object> param);
 
     //查询所有部门
-    @SelectProvider(type = DeptDynaSQLProvider.class, method = "selectAllDept")
+    //@SelectProvider(type = DeptDynaSQLProvider.class, method = "selectAllDept")
+    @Select("SELECT * FROM " + DEPTTABLE)
     List<Dept> selectAllDept();
 
     //根据id查询部门
-    @SelectProvider(type = DeptDynaSQLProvider.class, method = "selectById")
+    //@SelectProvider(type = DeptDynaSQLProvider.class, method = "selectById")
+    @Select("SELECT * FROM " + DEPTTABLE + " WHERE id = #{id}")
     Dept selectById(Integer id);
 
     //根据id删除部门
-    @DeleteProvider(type = DeptDynaSQLProvider.class, method = "deleteById")
+    //@DeleteProvider(type = DeptDynaSQLProvider.class, method = "deleteById")
+    @Delete("DELETE FROM " + DEPTTABLE + " WHERE id = #{id}")
     void deleteById(Integer id);
 
     //动态插入部门

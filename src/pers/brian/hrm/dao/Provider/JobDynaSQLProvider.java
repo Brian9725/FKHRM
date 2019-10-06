@@ -5,7 +5,6 @@
  */
 package pers.brian.hrm.dao.Provider;
 
-import jdk.nashorn.internal.scripts.JO;
 import org.apache.ibatis.jdbc.SQL;
 import pers.brian.hrm.domain.Job;
 
