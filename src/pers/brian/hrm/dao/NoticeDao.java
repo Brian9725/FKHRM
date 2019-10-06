@@ -15,9 +15,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import static pers.brian.hrm.util.common.HrmConstants.NOTICETABLE;
+
 @Component
 public interface NoticeDao {
-    // 动态查询
+    //动态查询
     @SelectProvider(type = NoticeDynaSQLProvider.class, method = "selectByPage")
     @Results({
             @Result(id = true, column = "id", property = "id"),
@@ -32,18 +34,20 @@ public interface NoticeDao {
     Integer count(Map<String, Object> params);
 
     //通过id查询通知
-    @SelectProvider(type = NoticeDynaSQLProvider.class, method = "selectById")
+    //@SelectProvider(type = NoticeDynaSQLProvider.class, method = "selectById")
+    @Select("SELECT * FROM " + NOTICETABLE + " WHERE id = #{id}")
     Notice selectById(int id);
 
-    // 根据id删除公告
-    @DeleteProvider(type = NoticeDynaSQLProvider.class, method = "deleteById")
+    //根据id删除公告
+    //@DeleteProvider(type = NoticeDynaSQLProvider.class, method = "deleteById")
+    @Delete("DELETE FROM " + NOTICETABLE + " WHERE id = #{id}")
     void deleteById(Integer id);
 
-    // 动态插入公告
+    //动态插入公告
     @InsertProvider(type = NoticeDynaSQLProvider.class, method = "save")
     void save(Notice notice);
 
-    // 动态修改公告
+    //动态修改公告
     @UpdateProvider(type = NoticeDynaSQLProvider.class, method = "update")
     void update(Notice notice);
 }

@@ -15,6 +15,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import static pers.brian.hrm.util.common.HrmConstants.DOCUMENTTABLE;
+
 @Component
 public interface DocumentDao {
     //动态查询
@@ -37,11 +39,13 @@ public interface DocumentDao {
     void save(Document document);
 
     //根据id查询文件
-    @SelectProvider(type = DocumentDynaSQLProvider.class, method = "selectById")
+    //@SelectProvider(type = DocumentDynaSQLProvider.class, method = "selectById")
+    @Select("SELECT * FROM " + DOCUMENTTABLE + " WHERE id = #{id}")
     Document selectById(int id);
 
     //根据id删除文档
-    @DeleteProvider(type = DocumentDynaSQLProvider.class, method = "deleteById")
+    //@DeleteProvider(type = DocumentDynaSQLProvider.class, method = "deleteById")
+    @Delete("DELETE FROM " + DOCUMENTTABLE + " WHERE id = #{id}")
     void deleteById(Integer id);
 
     //动态修改文档
